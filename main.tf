@@ -53,3 +53,20 @@ resource "azurerm_public_ip" "privateNet-pip" {
   sku                 = "Standard"
 }
 
+resource "azurerm_network_interface" "privateNet-nic" {
+  name                = "privateNet-nic"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.privateNet-rg.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.vm-privateNet-subnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.privateNet-pip.id
+  }
+
+  tags = {
+    project = "azure-home-office-solution"
+  }
+}
+
