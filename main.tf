@@ -19,3 +19,14 @@ resource "azurerm_resource_group" "privateNet-rg" {
     project = "azure-home-office-solution"
   }
 }
+
+resource "azurerm_virtual_network" "privateNet-vn" {
+  name                = "privateNet-network"
+  resource_group_name = azurerm_resource_group.privateNet-rg.name
+  location            = var.location
+  address_space       = ["10.0.0.0/16"]
+
+  tags = {
+    project = "azure-home-office-solution"
+  }
+}
