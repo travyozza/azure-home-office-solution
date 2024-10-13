@@ -13,3 +13,11 @@ Staff have transitioned from working in office, to working fully remote for the 
 ## Implementation
 
 ### 1. Create Azure Virtual Network
+
+### 2. Create Azure Virtual Machine
+
+### 3. Create Azure VPN Gateway
+
+### 4. Install certificates on client computers
+
+### 5. Remote connection via VPN
